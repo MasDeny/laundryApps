@@ -1,59 +1,100 @@
 <template>
-    <nav class="px-12 flex justify-between bg-white h-16 border-b-2 pt-2 md:pt-1 pb-1 px-1 mt-0 fixed w-full z-20 top-0">
-
-        <!-- top bar left -->
+    <nav class="flex justify-between content-center py-4 px-6 bg-white border-b-4 border-indigo-600">
         <ul class="flex items-center">
-            <!-- add button -->
-            <li class="h-6 w-6">
-                <img
-                    class="h-full w-full mx-auto"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/512px-Svelte_Logo.svg.png"
-                    alt="svelte logo" />
-            </li>
-        </ul>
-
-        <ul class="flex items-center">
-            <!-- add button -->
-            <li>
-                <h1 class="pl-8 lg:pl-0 text-gray-700">Lovely Laundry</h1>
-            </li>
-        </ul>
-
-        <!-- to bar right  -->
-        <ul class="flex items-center">
-
-            <li class="pr-6">
+            <button
+                @click="isOpen = true"
+                class="text-gray-500 focus:outline-none lg:hidden"
+                >
                 <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
+                class="w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                >
+                <path
+                    d="M4 6H20M4 12H20M4 18H11"
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="feather feather-bell">
-                    <path
-                        d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                />
                 </svg>
-
-            </li>
-            <li class="h-10 w-10">
+            </button>
+        </ul>
+        <!-- top bar left -->
+        <ul class="flex items-center xs:overflow-hidden sm:overflow-hidden">
+            <!-- add button -->
+            <!-- <li class="w-6 h-6">
                 <img
-                    class="h-full w-full rounded-full mx-auto"
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                    alt="profile woman" />
-            </li>
-
+                    class="w-full h-full mx-auto"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/512px-Svelte_Logo.svg.png"
+                    alt="svelte logo" />
+            </li> -->
         </ul>
 
+        <ul class="flex content-center">
+            <!-- add button -->
+            <li class="relative mx-4 lg:mx-0">
+                <h1 class="text-gray-700 font-bold lg:pl-0 sm:text-sm">Lovely Laundry</h1>
+            </li>
+        </ul>
+
+        <div class="relative">
+        <button
+          @click="dropdownOpen = !dropdownOpen"
+          class="relative z-10 block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none"
+        >
+          <img
+            class="h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=296&q=80"
+            alt="Your avatar"
+          />
+        </button>
+
+        <div
+          v-show="dropdownOpen"
+          @click="dropdownOpen = false"
+          class="fixed inset-0 h-full w-full z-10"
+        ></div>
+
+        <div
+          v-show="dropdownOpen"
+          class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20"
+        >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white"
+            >Profile</a
+          >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white"
+            >Products</a
+          >
+          <router-link
+            to="/"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white"
+            >Log out</router-link
+          >
+        </div>
+      </div>
     </nav>
 </template>
 
 <script>
-export default {
-
-}
+import { defineComponent, ref  } from "@vue/composition-api";
+import { useSidebar } from "../utils/useSidebar";
+export default defineComponent({
+    setup(_, { root  }) {
+        const dropdownOpen = ref(false);
+        const { isOpen } = useSidebar(
+          console.log(isOpen)
+        );
+        const log = console.log(isOpen)
+        return {
+            isOpen,
+            dropdownOpen,
+        };
+    },
+});
 </script>

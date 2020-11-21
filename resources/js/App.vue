@@ -1,26 +1,21 @@
 <template>
-  <div class="font-sans leading-normal tracking-normal bg-gray-800">
-    <app-navbar v-if="isAuth"/>
-
-      <div class="flex flex-col md:flex-row">
-        <app-sidebar v-if="isAuth"/>
-        <router-view></router-view>
-      </div>
+  <div :is="component">
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters  } from 'vuex'
-import Navbar from './components/Navbar.vue'
-import Sidebar from './components/Sidebar.vue'
+import { mapActions, mapState  } from "vuex";
+import DashboardLayout from "./components/DashboardLayout.vue";
+import EmptyLayout from "./components/EmptyLayout.vue";
 export default {
-  computed: {
-    ...mapState(['token']),
-    ...mapGetters(['isAuth'])
-  },
   components: {
-    'app-navbar': Navbar,
-    'app-sidebar': Sidebar
+    'default-layout': DashboardLayout,
+    'blank-layout': EmptyLayout
+  },
+  computed: {
+    ...mapState("layoutModule", {
+      component: state => state.layout
+    })
   }
 
 }

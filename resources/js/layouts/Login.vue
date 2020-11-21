@@ -1,17 +1,17 @@
 <template>
   <!-- Container -->
-  <div class="container mx-auto">
-    <div class="flex justify-center px-6 my-12">
+  <div class="container m-auto">
+    <div class="flex justify-center p-6 my-18">
       <!-- Row -->
-      <div class="flex w-full xl:w-3/4 lg:w-11/12">
+      <div class="flex w-full border-gray-300 shadow-lg xl:w-3/4 lg:w-11/12">
         <!-- Col -->
         <div
           class="hidden w-full h-auto bg-gray-400 bg-cover rounded-l-lg lg:block lg:w-1/2"
-          style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800')"
+          style="background-image: url('https://image.freepik.com/free-vector/laundry-dry-cleaning-abstract-concept-illustration-laundry-facilities-industry-cleaning-restoration-services-pickup-delivery-service-small-niche-business_335657-9.jpg')"
           ></div>
         <!-- Col -->
         <div class="w-full p-5 bg-white rounded-lg lg:w-1/2 lg:rounded-l-none">
-          <h3 class="pt-4 text-2xl text-center">Welcome Back!</h3>
+          <h3 class="pt-4 text-2xl font-extrabold text-center">Let's Start To Work!</h3>
           <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
             <div class="mb-4">
               <label class="block mb-2 text-sm font-bold text-gray-700" for="Email">

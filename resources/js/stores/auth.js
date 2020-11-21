@@ -1,4 +1,3 @@
-import { error } from "jquery";
 import $axios from "../utils/api";
 
 const state = () => ({});

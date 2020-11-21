@@ -12,6 +12,10 @@ import Vue from "vue";
 import router from "./router.js";
 import store from "./store";
 import App from "./App.vue";
+
+//import DashboardLayout from './components/DashboardLayout.vue'
+//import EmptyLayout from './components/EmptyLayout.vue'
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -24,7 +28,8 @@ import App from "./App.vue";
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
+//Vue.component("default-layout", DashboardLayout);
+//Vue.component("empty-layout", EmptyLayout);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

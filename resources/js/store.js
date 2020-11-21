@@ -2,13 +2,15 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import auth from "./stores/auth";
+import layoutModule from "./stores/layout";
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
     //SEMUA MODULE YANG DIBUAT AKAN DITEPATKAN DIDALAM BAGIAN INI DAN DIPISAHKAN DENGAN KOMA UNTUK SETIAP MODULE-NYA
     modules: {
-        auth
+        auth,
+        layoutModule
     },
     //STATE HAMPIR SERUPA DENGAN PROPERTY DATA DARI COMPONENT HANYA SAJA DAPAT DIGUNAKAN SECARA GLOBAL
     state: {
